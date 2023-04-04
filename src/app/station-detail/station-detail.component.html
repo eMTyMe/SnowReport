@@ -44,7 +44,7 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
-    <uz-measurements-images [allWebcamURL]="station.webcamURLs" [sortOrder]="sortOrder"></uz-measurements-images>
+    <uz-webcam-images [allWebcamURL]="station.webcamURLs" [sortOrder]="sortOrder"></uz-webcam-images>
   </div>
 
   <div *ngIf="!stationLoaded">

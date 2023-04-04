@@ -15,7 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { WeatherService } from './shared/weather-service';
 import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
-import { MeasurementsImagesComponent } from './measurements-images/measurements-images.component';
+import { WebcamImagesComponent } from './webcam-images/webcam-images.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
@@ -29,7 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     StationListComponent,
     StationDetailComponent,
     NavBarComponent,
-    MeasurementsImagesComponent,
+    WebcamImagesComponent,
   ],
   imports: [
     BrowserModule,

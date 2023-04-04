@@ -2,7 +2,6 @@ import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { WeatherService } from '../shared/weather-service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTable } from '@angular/material/table';
-import {Station} from '../shared/station';
 import { FormControl } from '@angular/forms';
 import { SkiArea } from '../shared/ski-area';
 
@@ -16,7 +15,6 @@ export class StationListComponent implements OnInit {
   stations!: SkiArea[];
   scrWidth: any = window.innerWidth;
   displayedColumns = ['namen', 'temperatur', 'niederschlag', 'luftdruck'];
-  units: any = Station.units;
   sortOrder: string = "";
   myControl = new FormControl('');
   searchedOptions: Array<string> = [];

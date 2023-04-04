@@ -1,7 +1,6 @@
 import { ActivatedRoute } from '@angular/router';
 import { WeatherService } from './../shared/weather-service';
 import { Component, HostListener, OnInit } from '@angular/core';
-import { Station } from '../shared/station';
 import { SkiArea } from '../shared/ski-area';
 
 interface measurements {

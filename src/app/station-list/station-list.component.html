@@ -62,17 +62,17 @@
 
     <!-- Temperature Column -->
     <ng-container matColumnDef="temperatur">
-      <td mat-cell *matCellDef="let station" [style.font-size.px]="15"> {{station?.t}} {{units.t}} </td>
+      <td mat-cell *matCellDef="let station" [style.font-size.px]="15"> {{station?.t}} </td>
     </ng-container>
 
     <!-- Precipitation Column -->
     <ng-container matColumnDef="niederschlag">
-      <td mat-cell *matCellDef="let station" [style.font-size.px]="15"> {{station?.n}} {{units.n}} </td>
+      <td mat-cell *matCellDef="let station" [style.font-size.px]="15"> {{station?.n}} </td>
     </ng-container>
 
     <!-- Air pressure Column -->
     <ng-container matColumnDef="luftdruck">
-      <td mat-cell *matCellDef="let station" [style.font-size.px]="15"> {{station?.p}} {{units.p}} </td>
+      <td mat-cell *matCellDef="let station" [style.font-size.px]="15"> {{station?.p}}</td>
     </ng-container>
 
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
