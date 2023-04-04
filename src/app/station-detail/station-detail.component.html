@@ -1,0 +1,58 @@
+<div *ngIf="scrWidth < 620; then mobile_content; else web_content"></div>
+<ng-template #mobile_content>
+  <div *ngIf="stationLoaded | async">
+    <h1>{{station.name}} {{station.totalKm}}</h1>
+    <p>Zuletz aktualisiert: {{lastUpdatedFormatted}}, Längengrad: {{station.longitude}}, Breitengrad:
+      {{station.latitude}}</p>
+    <mat-list *ngFor="let measurement of measurements">
+        <mat-list-item>
+          <section fxLayout="column" style="color: black;">
+            <div matListItemTitle><strong> {{measurement.description}} </strong></div>
+            <div matListItemLine> {{measurement.value}} </div>
+          </section>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-list>
+  </div>
+  <div *ngIf="!stationLoaded">
+    <p>Die Details werden geladen</p>
+  </div>
+  <a mat-raised-button color="primary" routerLink="/stations/{{sortOrder}}" style="margin-top: 15px">
+    <mat-icon>arrow_back</mat-icon>
+    Zurück zu den Stationen
+  </a>
+</ng-template>
+<ng-template #web_content>
+
+  <div *ngIf="stationLoaded | async">
+
+    <h1>{{station.name}} ({{station.totalKm}})</h1>
+    <p>Zuletz aktualisiert: {{lastUpdatedFormatted}}, Längengrad: {{station.longitude}}, Breitengrad:
+      {{station.latitude}}</p>
+
+    <table mat-table [dataSource]="measurements" style="width: 80%; background-color: #ead5f5;">
+
+      <ng-container matColumnDef="description">
+        <td mat-cell *matCellDef="let measurement" style="font-size: 15px; color: black"><strong>
+            {{measurement.description}} </strong></td>
+      </ng-container>
+
+      <ng-container matColumnDef="value">
+        <td mat-cell *matCellDef="let measurement" style="font-size: 15px; color: black"> {{measurement.value}}</td>
+      </ng-container>
+
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <uz-measurements-images [allWebcamURL]="station.webcamURLs" [sortOrder]="sortOrder"></uz-measurements-images>
+  </div>
+
+  <div *ngIf="!stationLoaded">
+    <p>Die Details werden geladen</p>
+  </div>
+
+  <a mat-raised-button color="primary" routerLink="/stations/{{sortOrder}}" style="margin-top: 15px">
+    <mat-icon>arrow_back</mat-icon>
+    Zurück zu den Stationen
+  </a>
+</ng-template>

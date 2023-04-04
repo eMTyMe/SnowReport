@@ -1,0 +1,68 @@
+<div *ngIf="screenWidth > 620 then webContent else mobileContent"></div>
+
+<ng-template #webContent>
+  <nav mat-tab-nav-bar backgroundColor="primary" mat-stretch-tabs="true">
+    <a mat-tab-link
+      routerLink="/home"
+      routerLinkActive #homeTab="routerLinkActive"
+      [active]="homeTab.isActive">
+      Home
+    </a>
+    <a mat-tab-link
+      routerLink="/stations/name"
+      routerLinkActive #stationsTab="routerLinkActive"
+      [active]="stationsTab.isActive">
+      Namen
+    </a>
+    <a mat-tab-link
+      routerLink="/stations/temperature"
+      routerLinkActive #temperatureTab="routerLinkActive"
+      [active]="temperatureTab.isActive">
+      Temperatur
+    </a>
+    <a mat-tab-link
+      routerLink="/stations/precipitation"
+      routerLinkActive #precipitationTab="routerLinkActive"
+      [active]="precipitationTab.isActive">
+      Niederschlag
+    </a>
+    <a mat-tab-link
+      routerLink="/stations/airpressure"
+      routerLinkActive #airpressureTab="routerLinkActive"
+      [active]="airpressureTab.isActive">
+      Luftdruck
+    </a>
+  </nav>
+</ng-template>
+
+<ng-template #mobileContent>
+  <nav mat-tab-nav-bar backgroundColor="primary" mat-stretch-tabs="true">
+    <a mat-tab-link
+      routerLink="/stations/name"
+      routerLinkActive #stationsTab="routerLinkActive"
+      [active]="stationsTab.isActive">
+      Namen
+    </a>
+    <a mat-tab-link
+      routerLink="/stations/temperature"
+      routerLinkActive #temperatureTab="routerLinkActive"
+      [active]="temperatureTab.isActive">
+      Temperatur
+    </a>
+    <a mat-tab-link
+      routerLink="/stations/precipitation"
+      routerLinkActive #precipitationTab="routerLinkActive"
+      [active]="precipitationTab.isActive">
+      Niederschlag
+    </a>
+    <a mat-tab-link
+      routerLink="/stations/airpressure"
+      routerLinkActive #airpressureTab="routerLinkActive"
+      [active]="airpressureTab.isActive">
+      Luftdruck
+    </a>
+  </nav>
+</ng-template>
+
+
+<router-outlet></router-outlet>
