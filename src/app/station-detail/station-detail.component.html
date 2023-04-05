@@ -2,8 +2,7 @@
 <ng-template #mobile_content>
   <div *ngIf="stationLoaded | async">
     <h1>{{station.name}} ({{station.totalKm}})km</h1>
-    <p>Zuletz aktualisiert: {{lastUpdatedFormatted}}, Längengrad: {{station.longitude}}, Breitengrad:
-      {{station.latitude}}</p>
+    <p>Längengrad: {{station.longitude}}, Breitengrad: {{station.latitude}}</p>
     <mat-list *ngFor="let measurement of measurements">
         <mat-list-item>
           <section fxLayout="column" style="color: black;">
@@ -30,8 +29,7 @@
       Zurück zu den Stationen
     </a>
     <h1>{{station.name}} ({{station.totalKm}}km)</h1>
-    <p>Zuletz aktualisiert: {{lastUpdatedFormatted}}, Längengrad: {{station.longitude}}, Breitengrad:
-      {{station.latitude}}</p>
+    <p>Längengrad: {{station.longitude}}, Breitengrad: {{station.latitude}}</p>
 
     <table mat-table [dataSource]="measurements" style="width: 80%; background-color: #ead5f5;">
 

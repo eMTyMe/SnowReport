@@ -1,34 +1,52 @@
 .mat-column-namen {
-  width: 49%;
+  width: 25%;
   background-color: #ead5f5;
   color: black;
   border-width: 0px;
+  text-align: center;
+  font-size: 20px;
 }
 
 .mat-column-totalkm {
-  width: 19%;
+  width: 25%;
   background-color: #ead5f5;
   color: black;
   border-width: 0px;
+  text-align: center;
+  font-size: 20px;
 }
 
 .mat-column-totalslopes {
-  width: 19%;
+  width: 25%;
   background-color: #ead5f5;
   color: black;
   border-width: 0px;
+  text-align: center;
+  font-size: 20px;
 }
 
 .mat-column-totaltracks {
+  width: 25%;
   background-color: #ead5f5;
   color: black;
   border-width: 0px;
+  text-align: center;
+  font-size: 20px;
 }
 
 .mat-input {
-  color: black;
+  background-color: #673ab7;
+  color: white;
 }
 
-.no-border {
-  border: 0px;
+.mat-input:hover {
+  color: black;
+} 
+
+.big-font {
+  font-size: 1.2em;
+}
+
+.form-field {
+  min-width: 250px;
 }

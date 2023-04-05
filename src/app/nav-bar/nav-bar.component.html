@@ -1,41 +1,7 @@
-<div *ngIf="screenWidth > 620 then webContent else mobileContent"></div>
+<div *ngIf="true then Content">
+</div>
 
-<ng-template #webContent>
-  <nav mat-tab-nav-bar backgroundColor="primary" mat-stretch-tabs="true">
-    <a mat-tab-link
-      routerLink="/home"
-      routerLinkActive #homeTab="routerLinkActive"
-      [active]="homeTab.isActive">
-      Home
-    </a>
-    <a mat-tab-link
-      routerLink="/stations/name"
-      routerLinkActive #stationsTab="routerLinkActive"
-      [active]="stationsTab.isActive">
-      Namen
-    </a>
-    <a mat-tab-link
-      routerLink="/stations/totalkm"
-      routerLinkActive #temperatureTab="routerLinkActive"
-      [active]="temperatureTab.isActive">
-      Kilometer
-    </a>
-    <a mat-tab-link
-      routerLink="/stations/totalslopes"
-      routerLinkActive #precipitationTab="routerLinkActive"
-      [active]="precipitationTab.isActive">
-      Pisten
-    </a>
-    <a mat-tab-link
-      routerLink="/stations/totaltracks"
-      routerLinkActive #airpressureTab="routerLinkActive"
-      [active]="airpressureTab.isActive">
-      Strecken
-    </a>
-  </nav>
-</ng-template>
-
-<ng-template #mobileContent>
+<ng-template #Content>
   <nav mat-tab-nav-bar backgroundColor="primary" mat-stretch-tabs="true">
     <a mat-tab-link
       routerLink="/stations/name"
@@ -63,6 +29,5 @@
     </a>
   </nav>
 </ng-template>
-
 
 <router-outlet></router-outlet>

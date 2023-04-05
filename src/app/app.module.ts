@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs';
-import { HomeComponent } from './home/home.component';
 import { StationListComponent } from './station-list/station-list.component';
 import { StationDetailComponent } from './station-detail/station-detail.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -25,7 +24,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     StationListComponent,
     StationDetailComponent,
     NavBarComponent,
