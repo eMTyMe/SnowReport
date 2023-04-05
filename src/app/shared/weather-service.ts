@@ -47,19 +47,19 @@ export class WeatherService {
       }
       case 'totalkm': {
         return skiAreas.sort((a1, a2) =>
-          a1.totalKm == a2.totalKm ? 0 : a1.totalKm < a2.totalKm ? -a2.totalKm : a1.totalKm);
+          a1.totalKm == a2.totalKm ? 0 : a2.totalKm - a1.totalKm);
       }
-      case 'totalskislopes': {
+      case 'totalslopes': {
         return skiAreas.sort((a1, a2) =>
-          a1.totalSkiSlopes == a2.totalSkiSlopes ? 0 : a1.totalSkiSlopes < a2.totalSkiSlopes ? -a2.totalSkiSlopes : a1.totalSkiSlopes);
+          a1.totalSkiSlopes == a2.totalSkiSlopes ? 0 : a2.totalSkiSlopes - a1.totalSkiSlopes);
       }
       case 'totaltracks': {
         return skiAreas.sort((a1, a2) =>
-          a1.totalTracks == a2.totalTracks ? 0 : a1.totalTracks < a2.totalTracks ? -a2.totalTracks : a1.totalTracks);
+          a1.totalTracks == a2.totalTracks ? 0 : a2.totalTracks - a1.totalTracks);
       }
       case 'totalslides': {
         return skiAreas.sort((a1, a2) =>
-          a1.totalSlides == a2.totalSlides ? 0 : a1.totalSlides < a2.totalSlides ? -a2.totalSlides : a1.totalSlides);
+          a1.totalSlides == a2.totalSlides ? 0 : a2.totalSlides - a1.totalSlides);
       }
       default: {
         return skiAreas;

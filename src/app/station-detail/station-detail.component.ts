@@ -35,7 +35,7 @@ export class StationDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.sortOrder = params.sortOrder;
-      this.ws.get(params.code).subscribe(station=>{
+      this.ws.get(params.id).subscribe(station=>{
         this.station=station
         this.stationLoaded = Promise.resolve(true);
         this.setUpMeasurements();

@@ -28,6 +28,7 @@ export class SkiAreaFactory {
       parseFloat(rawSkiArea.contactgpsnorth),
       parseFloat(rawSkiArea.contactgpseast)
       );
+    ret.name = ret.name.substring(10);
     return ret;
   }
 }

@@ -14,7 +14,7 @@ export class StationListComponent implements OnInit {
 
   stations!: SkiArea[];
   scrWidth: any = window.innerWidth;
-  displayedColumns = ['namen', 'temperatur', 'niederschlag', 'luftdruck'];
+  displayedColumns = ['namen', 'totalkm', 'totalslopes', 'totaltracks'];
   sortOrder: string = "";
   myControl = new FormControl('');
   searchedOptions: Array<string> = [];
@@ -25,10 +25,9 @@ export class StationListComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.ws.getAll(params.sortOrder).subscribe(stations=> {this.stations=stations; console.log(stations); this.setOptions(stations);});
+      this.ws.getAll(params.sortOrder).subscribe(stations=> {this.stations=stations; this.setOptions(stations);});
       this.sortOrder = params.sortOrder;
     })
-    this.ws.getSkiAreas(this.searchTerm).subscribe(foundStations => this.setOptions(foundStations))
   }
 
   @HostListener('window:resize', ['$event'])

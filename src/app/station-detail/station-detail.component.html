@@ -1,7 +1,7 @@
 <div *ngIf="scrWidth < 620; then mobile_content; else web_content"></div>
 <ng-template #mobile_content>
   <div *ngIf="stationLoaded | async">
-    <h1>{{station.name}} {{station.totalKm}}</h1>
+    <h1>{{station.name}} ({{station.totalKm}})km</h1>
     <p>Zuletz aktualisiert: {{lastUpdatedFormatted}}, Längengrad: {{station.longitude}}, Breitengrad:
       {{station.latitude}}</p>
     <mat-list *ngFor="let measurement of measurements">
@@ -25,8 +25,11 @@
 <ng-template #web_content>
 
   <div *ngIf="stationLoaded | async">
-
-    <h1>{{station.name}} ({{station.totalKm}})</h1>
+    <a mat-raised-button color="primary" routerLink="/stations/{{sortOrder}}" style="margin-top: 15px">
+      <mat-icon>arrow_back</mat-icon>
+      Zurück zu den Stationen
+    </a>
+    <h1>{{station.name}} ({{station.totalKm}}km)</h1>
     <p>Zuletz aktualisiert: {{lastUpdatedFormatted}}, Längengrad: {{station.longitude}}, Breitengrad:
       {{station.latitude}}</p>
 
@@ -50,9 +53,4 @@
   <div *ngIf="!stationLoaded">
     <p>Die Details werden geladen</p>
   </div>
-
-  <a mat-raised-button color="primary" routerLink="/stations/{{sortOrder}}" style="margin-top: 15px">
-    <mat-icon>arrow_back</mat-icon>
-    Zurück zu den Stationen
-  </a>
 </ng-template>
