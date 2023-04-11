@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MeasurePoints } from '../shared/measurepoints';
 
@@ -12,6 +12,7 @@ export class WebcamImagesComponent implements OnInit {
   @Input() allWebcamURL!: String[];
   @Input() sortOrder!: String;
   sortMeasure: any = [];
+  scrWidth: any = window.innerWidth;
 
   constructor(private route: ActivatedRoute) { }
 
@@ -24,5 +25,10 @@ export class WebcamImagesComponent implements OnInit {
       this.sortMeasure.push(webcam);
     }
   }
+
+  @HostListener('window:resize', ['$event'])
+    getScreenSize(event?: any) {
+          this.scrWidth = window.innerWidth;
+    }
 
 }

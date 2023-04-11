@@ -1,3 +1,16 @@
 .image {
   width: 80%;
 }
+
+.center-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.center-row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  gap: 10px 30px;
+}

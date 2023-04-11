@@ -1,3 +1,15 @@
-<div *ngFor="let url of allWebcamURL">
-  <img class="image" src={{url}}/>
-</div>
+<div *ngIf="scrWidth < 620; then links; else images"></div>
+
+<ng-template #images>
+  <div *ngFor="let url of allWebcamURL">
+    <a href={{url}} class="center-col">
+      <img class="image" src={{url}}/>
+    </a>
+  </div>
+</ng-template>
+
+<ng-template #links class="center-row">
+  <section>
+    <a *ngFor="let url of allWebcamURL; let i = index" mat-stroked-button href={{url}} target="_blank">Webcam {{i}}</a>
+  </section>
+</ng-template>

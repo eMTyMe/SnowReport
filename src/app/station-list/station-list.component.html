@@ -22,7 +22,7 @@
       <mat-list-item>
         <section fxLayout="column">
           <div matListItemTitle><a routerLink="/station/{{ sortOrder }}/{{station?.id}}">{{ station?.name }}</a></div>
-          <div matListItemLine style="color: black;">{{station?.totalKm}}</div>
+          <div matListItemLine style="color: black;">{{station?.totalKm}}km, {{station?.totalSkiSlopes}} Pisten, {{station?.totalTracks}} Strecken</div>
         </section>
       </mat-list-item>
       <mat-divider></mat-divider>
@@ -58,7 +58,7 @@
 
     <!-- totalkm Column -->
     <ng-container matColumnDef="totalkm">
-      <td mat-cell *matCellDef="let station"> {{station?.totalKm}} </td>
+      <td mat-cell *matCellDef="let station"> {{station?.totalKm}}km </td>
     </ng-container>
 
     <!-- totalskilift Column -->
