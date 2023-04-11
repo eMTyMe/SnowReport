@@ -8,8 +8,36 @@
     align-items: center;
 }
 
+.flex {
+    display: flex;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.margin-right {
+    margin-right: 15px;
+}
+
+.margin-right-10 {
+    margin-right: 10px;
+}
+
 .margin-top {
     margin-top: 15px;
+}
+
+.margin-bottom {
+    margin-bottom: 15px;
 }
 
 .font-20 {
@@ -25,6 +53,16 @@
 }
 
 .data-table {
-    width: 60%;
+    width: 80%;
     background-color: #ead5f5;
+}
+
+.mat-column-description {
+    border-bottom: 2px solid gray;
+    padding: 15px;
+}
+
+.mat-column-value {
+    border-bottom: 2px solid gray;
+    padding: 15px;
 }

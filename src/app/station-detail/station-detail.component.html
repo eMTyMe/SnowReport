@@ -5,8 +5,16 @@
     Zurück zu den Stationen
   </a>
   <div *ngIf="stationLoaded | async">
-    <h1 class="font-30">{{station.name}} ({{station.totalKm}}km)</h1>
-    <p class="font-20">Längengrad: {{station.longitude}}, Breitengrad: {{station.latitude}}</p>
+    <div class="flex flex-row">
+      <img src={{station.contactLogoURL}} class="margin-right">
+      <h1 class="font-30">{{station.name}} ({{station.totalKm}}km)</h1>
+    </div>
+    <div class="flex flex-column">
+      <p class="font-20 no-margin margin-bottom margin-top">Tel.: {{station.contactTel}}</p>
+      <p class="font-20 no-margin margin-bottom">E-Mail: {{station.contactMail}}</p>
+      <p class="font-20 no-margin margin-bottom">Adresse: {{station.contactAdress}}</p>
+      <p class="font-20 no-margin margin-bottom">Ort: {{station.contactCity + ' ' +  station.contactPLZ}}</p>
+    </div>
     <a mat-stroked-button href={{station.skiMapURL}} target="_blank">Skigebiet Karte</a>
     <mat-list *ngFor="let measurement of measurements">
       <mat-list-item>
@@ -26,25 +34,35 @@
 
 
 <ng-template #web_content>
-  <a mat-raised-button color="primary" routerLink="/stations/{{sortOrder}}" class="margin-top">
+  <a mat-raised-button color="primary" routerLink="/stations/{{sortOrder}}" class="margin-top margin-bottom">
     <mat-icon>arrow_back</mat-icon>
     Zurück zu den Stationen
   </a>
   <div *ngIf="stationLoaded | async" class="center">
-    <h1 class="font-40">{{station.name}} ({{station.totalKm}}km)</h1>
-    <p class="font-20">Längengrad: {{station.longitude}}, Breitengrad: {{station.latitude}}</p>
+    <div>
+      <div class="flex flex-row">
+        <img src={{station.contactLogoURL}} class="margin-right">
+        <h1 class="font-40">{{station.name}} ({{station.totalKm}}km)</h1>
+      </div>
+      <div class="flex flex-row">
+        <p class="font-20 margin-right-10">Tel.: {{station.contactTel}}</p>
+        <p class="font-20 margin-right-10">E-Mail: {{station.contactMail}}</p>
+        <p class="font-20 margin-right-10">Adresse: {{station.contactAdress}}</p>
+        <p class="font-20 margin-right-10">Ort: {{station.contactCity + ' ' +  station.contactPLZ}}</p>
+      </div>
+    </div>
     <a href={{station.skiMapURL}} class="center">
       <img src={{station.skiMapURL}} class="image">
     </a>
     <table mat-table [dataSource]="measurements" class="data-table">
 
-      <ng-container matColumnDef="description">
-        <td mat-cell *matCellDef="let measurement" class="font-20"><strong>
+      <ng-container matColumnDef="description" class="description">
+        <td mat-cell *matCellDef="let measurement" class="font-30"><strong>
             {{measurement.description}} </strong></td>
       </ng-container>
 
-      <ng-container matColumnDef="value">
-        <td mat-cell *matCellDef="let measurement" class="font-20"> {{measurement.value}}</td>
+      <ng-container matColumnDef="value" class="value">
+        <td mat-cell *matCellDef="let measurement" class="font-30"> {{measurement.value}}</td>
       </ng-container>
 
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
@@ -54,6 +72,6 @@
   </div>
 
   <div *ngIf="!stationLoaded">
-    <p>Die Station wird noch geladen...</p>
+    <p>Die Station wird geladen...</p>
   </div>
 </ng-template>
