@@ -74,8 +74,9 @@ export class WeatherService {
   }
 
   getByName(name: string): Observable<SkiArea>{
+    console.log(name);
     return this.getAll("name").pipe(
-      map(skiAreas => skiAreas.find(area => area.name.toLowerCase === name.toLowerCase)!)
+      map(skiAreas => skiAreas.find(area => area.name.includes(name))!)
     );
   }
 

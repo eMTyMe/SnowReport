@@ -49,8 +49,7 @@ export class StationListComponent implements OnInit {
   navigateTo(stationName: string) {
     let url: string = '/station/';
     let id: string = "";
-    url = url.concat(this.sortOrder);
-    url = url.concat("/");
+    url = url.concat(this.sortOrder + '/');
     this.ws.getByName(stationName).subscribe(station => id = station.id);
     url = url.concat(id);
     this.router.navigate([url]);
