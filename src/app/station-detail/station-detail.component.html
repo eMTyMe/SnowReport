@@ -6,7 +6,7 @@
   </a>
   <div *ngIf="stationLoaded | async">
     <div class="flex flex-row">
-      <img src={{station.contactLogoURL}} class="margin-right">
+      <img src={{station.contactLogoURL}} class="margin-right image-static">
       <h1 class="font-30">{{station.name}} ({{station.totalKm}}km)</h1>
     </div>
     <div class="flex flex-column">
@@ -41,7 +41,7 @@
   <div *ngIf="stationLoaded | async" class="center">
     <div>
       <div class="flex flex-row">
-        <img src={{station.contactLogoURL}} class="margin-right">
+        <img src={{station.contactLogoURL}} class="margin-right image-static">
         <h1 class="font-40">{{station.name}} ({{station.totalKm}}km)</h1>
       </div>
       <div class="flex flex-row">

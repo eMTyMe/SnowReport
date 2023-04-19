@@ -2,6 +2,11 @@
     width: 80%;
 }
 
+.image-static {
+    min-width: 300px;
+    max-width: 350px;
+}
+
 .center {
     display: flex;
     flex-direction: column;
