@@ -1,5 +1,5 @@
 import { ActivatedRoute } from '@angular/router';
-import { WeatherService } from './../shared/weather-service';
+import { SkiService } from './../shared/ski-service';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { SkiArea } from '../shared/ski-area';
 
@@ -30,12 +30,12 @@ export class StationDetailComponent implements OnInit {
     minute: 'numeric'
   });
 
-  constructor(private ws: WeatherService, private route: ActivatedRoute) { }
+  constructor(private ss: SkiService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.sortOrder = params.sortOrder;
-      this.ws.get(params.id).subscribe(station=>{
+      this.ss.get(params.id).subscribe(station=>{
         this.station=station
         this.stationLoaded = Promise.resolve(true);
         this.setUpMeasurements();

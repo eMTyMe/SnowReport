@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
-import { WeatherService } from '../shared/weather-service';
+import { SkiService } from '../shared/ski-service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTable } from '@angular/material/table';
 import { FormControl } from '@angular/forms';
@@ -21,11 +21,11 @@ export class StationListComponent implements OnInit {
   searchTerm: string = "";
   options: Array<string> = [];
 
-  constructor(private ws: WeatherService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private ss: SkiService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.ws.getAll(params.sortOrder).subscribe(stations=> {this.stations=stations; this.setOptions(stations);});
+      this.ss.getAll(params.sortOrder).subscribe(stations=> {this.stations=stations; this.setOptions(stations);});
       this.sortOrder = params.sortOrder;
     })
   }
@@ -42,7 +42,7 @@ export class StationListComponent implements OnInit {
   }
 
   searchTermChange(searchTerm: string) {
-    this.ws.getSkiAreas(searchTerm).subscribe(foundStations => this.setOptions(foundStations))
+    this.ss.getSkiAreas(searchTerm).subscribe(foundStations => this.setOptions(foundStations))
   }
 
 
@@ -50,7 +50,7 @@ export class StationListComponent implements OnInit {
     let url: string = '/station/';
     let id: string = "";
     url = url.concat(this.sortOrder + '/');
-    this.ws.getByName(stationName).subscribe(station => id = station.id);
+    this.ss.getByName(stationName).subscribe(station => id = station.id);
     url = url.concat(id);
     this.router.navigate([url]);
   }
